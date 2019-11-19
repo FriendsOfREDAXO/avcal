@@ -128,7 +128,7 @@ if (count($objects) < 1) {
 else {
 $objectlabel =  $this->i18n("avcal_label_object");   
 $panel = '
-<form action="#" method="get">
+<form action="'.rex_url::currentBackendPage().'" method="get">
 
 <div class="form-horizontal">
 <input type="hidden" name="page" value="avcal" />
