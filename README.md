@@ -16,6 +16,8 @@ Basiert auf:
 ## Modul-Eingabe
 
 ```php
+<?php
+
 // Modul-Input
 
 if (rex_addon::get('avcal')->isAvailable()) {
@@ -187,5 +189,8 @@ $calendar->setOption('week_start', 1);
 }
 
     ?></div>
+
+```
+
     
     
