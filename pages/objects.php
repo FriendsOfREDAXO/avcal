@@ -15,27 +15,17 @@ if ($func == 'setstatus') {
     $func = '';
 }
 
-
-
-
-
-//------------------------------> in der Listenansicht Eintrag l?schen
 if ($func == 'delete') {
 
   $sql = rex_sql::factory();
   $sql->setTable(rex::getTablePrefix().'avcal_objects');
   $sql->setWhere('id = '. $id);
   $sql->delete();
-   echo rex_view::success($this->i18n('avcal_object_deleted'));
-
-#  echo rex_info($sql->delete($this->i18n('avcal_object_deleted')));
+  echo rex_view::success($this->i18n('avcal_object_deleted'));
   $func = '';
 
 }
 
-
-
-// Das Formular wird angezeigt, wenn der Request-Parameter func (get oder post) gleich "add" oder "edit" ist
 if (in_array($func,['add','edit'])) {
     // Formular-Objekt erstellen
     $form = rex_form::factory(rex::getTable($table), 'Objekt', 'id=' . rex_request('id', 'int', 0),'post',false);
@@ -91,29 +81,21 @@ if (in_array($func,['add','edit'])) {
         return $str;
     });
 
- $list->addColumn($this->i18n('avcal_label_functions'), $this->i18n('avcal_function_delete'));
+  $list->addColumn($this->i18n('avcal_label_functions'), $this->i18n('avcal_function_delete'));
   $list->setColumnParams($this->i18n('avcal_label_functions'), array('func' => 'delete', 'id' => '###id###'));
   $list->addLinkAttribute($this->i18n('avcal_label_functions'), 'onclick', 'return confirm(\''.$this->i18n('delete').' ?\')');
-
-
-
-    // die Spalte name wird sortierbar
-    $list->setColumnSortable('name');
-    // Liste auslesen
-    $content = $list->get();
+  // die Spalte name wird sortierbar
+  $list->setColumnSortable('name');
+  // Liste auslesen
+  $content = $list->get();
 }
-
 // Listen- und Formularinhalt in Fragment "section" ausgeben
 $fragment = new rex_fragment();
-
 $fragment->setVar('title', 'Formlabel', false);
 $fragment->setVar('body', $content, false);
 $content = $fragment->parse('core/page/section.php');
 
 $fragment = new rex_fragment();
-
-
-
 echo $content;
 
 
