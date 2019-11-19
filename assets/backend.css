@@ -34,9 +34,9 @@
   border: 1px solid #dddddd;
   width: 23%;
   background-color: #ddd;height: 244px;
-  box-shadow:0 2px 8px rgba(0, 0, 0, 0.08)
+  box-shadow:0 2px 8px rgba(0, 0, 0, 0.08);
 
-}
+min-width: 244px;}
 
 .avcal table.calendar caption {
   text-align:center;
@@ -158,9 +158,3 @@
 .avcal ul.legend li.booked-all {
   background: url(/redaxo/../assets/addons/avcal/booked-all.gif) no-repeat left center;
 }
-
-
-
-
-
-
