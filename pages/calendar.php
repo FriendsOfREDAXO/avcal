@@ -1,16 +1,5 @@
 <?php
-/**
- * Belegungskalendar Addon
- * @author bade[at]maple-park[dot]de Heinz Bade
- * @author <a href="http://www.maple-park.de">www.maple-park.de</a>
- * @package redaxo 4.3
- * @version $Id: calendar.inc.php,v 1.2 2012/02/18 17:33:00 elektra Exp $
- */
-
-// number of months to show on one page
-#$month_to_show = $REX['ADDON'][$page]['month_to_show'];
 $month_to_show = 12;
-
 // initialize request parameters
 $call_by = rex_request('call_by', 'string');
 $object_id = rex_request('object_id', 'integer', 0);
