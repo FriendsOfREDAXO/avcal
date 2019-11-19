@@ -1,6 +1,8 @@
 # avcal
 🐣 Einfacher Belegungskalender für REDAXO 5
 
+![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/avcal/assets/screenshot.png)
+
 Basiert auf: 
 
 - Belegungskalender von Tim Filler
