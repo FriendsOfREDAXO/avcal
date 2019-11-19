@@ -1,13 +1,4 @@
 <?php
-/**
- * Calendar Generation Class
- *
- * @author bade[at]maple-park[dot]de Heinz Bade
- * @link http://www.maple-park.de
- * @package redaxo 4.3
- * @version $Id: class.calendar.inc.php,v 1.6 2012/02/18 12:46:00 elektra Exp $
- */
-
 class avcal
 {
 
