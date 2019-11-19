@@ -1,0 +1,106 @@
+/*
+  Availability Calendar : navigation through month
+-------------------------------------------------------------------------------*/
+
+ul.prev_next {
+  list-style-type: none !important;
+  margin: 10px 0;
+  padding: 0;
+  width: 100%;
+}
+
+ul.prev_next li {
+  list-style-type: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 33%;
+  text-align: center;
+  float: left;
+  /*outline: 1px solid #c00;*/
+}
+ul.prev_next li.prev a { text-align: left; }
+ul.prev_next li.curr { font-weight: bold; }
+ul.prev_next li.next a { text-align: right; }
+
+ul.prev_next li a {
+  display: block;
+  width: 100%;
+}
+
+/*
+  Availability Calendar : calendar month sheet
+-------------------------------------------------------------------------------*/
+
+table.calendar {
+  float: left;
+  margin: 10px 15px 10px 0px;
+  border: 1px solid #ddd;
+  width: 216px;
+  background-color: #ddd;
+  border-collapse: collapse;
+
+}
+
+table.calendar caption {
+  border: 1px solid #dfe9e9;
+  text-align: center;
+  background-color: #dfe9e9;
+  color: #333;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+table.calendar thead th {
+  border: 1px solid #14568a;
+  text-align:center;
+  color: #ffffff;
+  background-color: #14568a;
+}
+table.calendar tbody td {
+  border: 1px solid #fff;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+  color: #333;
+}
+table.calendar tbody td.pad {
+  background-color: #ddd;
+}
+table.calendar tbody td.booked {
+  background-color: #ffffcc;
+}
+table.calendar tbody td.booked-am {
+  background: url(booked-am.gif) no-repeat center center;
+}
+table.calendar tbody td.booked-pm {
+  background: url(booked-pm.gif) no-repeat center center;
+}
+table.calendar tbody td.booked-all {
+  background: url(booked-all.gif) no-repeat center center;
+}
+
+/*
+  Availability Calendar : legend
+-------------------------------------------------------------------------------*/
+
+ul.legend {
+  list-style-type: none !important;
+  margin: 10px 0;
+  padding: 0;
+  width: 100%;
+}
+
+ul.legend li {
+  list-style-type: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 24.5%;
+  float: left;
+  background: url(booked-none.gif) no-repeat center left;
+  /*outline: 1px solid #c00;*/
+}
+ul.legend li.none { background-image: url(booked-none.gif); }
+ul.legend li.all { background-image: url(booked-all.gif); }
+ul.legend li.am { background-image: url(booked-am.gif); }
+ul.legend li.pm { background-image: url(booked-pm.gif); }

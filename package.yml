@@ -1,0 +1,19 @@
+package: avcal
+version: '0.0.1-dev'
+author: Friends Of REDAXO
+supportpage: https://github.com/FriendsOfREDAXO/maintenance
+title: 'Belegungskalender'
+nav_icon: fa-share
+
+page:
+    title: 'Belegungskalender'
+    perm: maintenance[]
+    block: system
+    icon: 'rex-icon rex-icon fa-calendar'
+    subpages:
+        calendar:
+            { title: 'translate:avcal_title', icon: rex-icon fa-calendar }
+        objects:
+            { title: 'translate:avcal_objects', icon: rex-icon fa-list }
+requires:
+    redaxo: ^5.7.0

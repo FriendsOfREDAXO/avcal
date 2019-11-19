@@ -1,0 +1,59 @@
+
+# addon:avcal de_de_utf8
+
+avcal_title = Belegungskalender
+avcal_calendar = Kalender
+avcal_objects = Objekte
+avcal_settings = Einstellungen
+avcal_edit_settings = Einstellungen bearbeiten
+avcal_label_week_start_day = Woche startet am
+avcal_monday = Montag
+avcal_tuesday = Dienstag
+avcal_wednesday = Mittwoch
+avcal_thursday = Donnerstag
+avcal_friday = Freitag
+avcal_saturday = Samstag
+avcal_sunday = Sonntag
+avcal_label_month_to_show = Anzahl Monate, die gleichzeitig angezeigt werden sollen
+avcal_setup_done = Konfiguration/Einstellungen wurden aktualisiert.
+avcal_setup_error = Konfiguration/Einstellungen konnten nicht aktualisiert werden. Die Datei "{0}" hat keine Schreibrechte.
+
+avcal_add_object = Objekt hinzufügen
+avcal_edit_object = Objekt-Daten bearbeiten
+avcal_delete_object = Objekt löschen
+avcal_object_deleted = Objekt wurde gelöscht!
+avcal_label_name = Name
+avcal_label_description = Beschreibung
+avcal_label_status = Status
+avcal_change_status = Status ändern
+avcal_status_changed = Objekt-Status wurde geändert!
+avcal_label_functions = Aktion
+avcal_function_delete = löschen
+avcal_required_field = Pflichtfelder
+
+avcal_first_create_objects = Zuerst müssen Objekte angelegt werden.
+avcal_select_object = Objekt auswählen
+avcal_label_object = Objekt
+avcal_edit_booked_days = Gebuchte Tage bearbeiten
+avcal_booked_day_deleted = Tag wurde ausgebucht!
+avcal_booked_day_inserted = Tag als gebucht eingetragen!
+avcal_instructions = Zum Ein- und Ausbuchen auf den entsprechenden Tag klicken. Halten Sie die SHIFT- bzw. die ALT-Taste gedrückt, wenn Sie nur vor- bzw. nachmittags buchen wollen.
+avcal_book_am = Nur den Vormittag buchen (Shift + Mausklick)
+avcal_book_pm = Nur den Nachmittag buchen (Alt + Mausklick)
+avcal_book_all = Den ganzen Tag buchen (Mausklick)
+avcal_legend = Legende
+avcal_label_for = Text für "{0}"
+avcal_booked_none = nicht gebucht
+avcal_booked_am = nur vormittags gebucht
+avcal_booked_pm = nur nachmittags gebucht
+avcal_booked_all = ganzer Tag gebucht
+
+avcal_module_select_object = Objekt auswählen
+avcal_module_month_to_show = Anzahl Monate
+avcal_module_month_per_row = Anzahl pro Zeile
+avcal_module_show_navigation = Navigation anzeigen
+
+avcal_create_objects = Objekte anlegen
+avcal_object_intro = Auf der Unterseite "<a href="index.php?page=avcal&amp;subpage=objects">Objekte</a>" müssen Sie zunächst die Objekte anlegen, für die Sie die Belegung erfassen wollen. Name und Beschreibung sind nur für das Backend gedacht und werden nicht im Frontend ausgegeben.
+avcal_create_module = Modul erstellen
+avcal_module_intro = Bevor Sie den Belegungskalendar im Frontend benutzen können, müssen Sie ein Modul anlegen. Da bei der Kalenderausgabe die PHP-Funktion "strftime" benutzt wird, müssen in der Modul-Ausgabe mittels "setlocale" die entsprechenden "locales" gesetzt werden.
