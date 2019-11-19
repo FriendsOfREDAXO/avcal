@@ -1,6 +1,13 @@
 # avcal
 🐣 Einfacher Belegungskalender für REDAXO 5
 
+Basiert auf: 
+
+- Belegungskalender von Tim Filler
+- mp Belegungskalender / maple park
+
+
+
 ## Modul-Eingabe
 
 ```php
