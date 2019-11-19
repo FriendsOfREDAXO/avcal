@@ -4,8 +4,8 @@
 
 .avcal ul.prev_next {
   list-style-type: none;
-  margin: 0 10px 20px 10px !important;
-  padding: .5em 0 !important;
+  margin: 0 10px 20px 10px;
+  padding: .5em 0;
   width: 98%;
 }
 
