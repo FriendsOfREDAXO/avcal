@@ -7,8 +7,6 @@ nav_icon: fa-share
 
 page:
     title: 'Belegungskalender'
-    perm: maintenance[]
-    block: system
     icon: 'rex-icon rex-icon fa-calendar'
     subpages:
         calendar:
