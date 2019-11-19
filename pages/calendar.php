@@ -1,5 +1,6 @@
 <?php
 $month_to_show = 12;
+
 // initialize request parameters
 $call_by = rex_request('call_by', 'string');
 $object_id = rex_request('object_id', 'integer', 0);
@@ -133,8 +134,8 @@ else {
     $fragment->setVar('class', 'edit');
     $fragment->setVar('title', rex_i18n::msg('avcal_select_object'), false);
     $fragment->setVar('body', $panel, false);
-    $content = $fragment->parse('core/page/section.php');
-    echo $content;
+    $objectpanel = $fragment->parse('core/page/section.php');
+
 
 
 
@@ -176,7 +177,7 @@ else {
     $fragment->setVar('title', rex_i18n::msg('avcal_legend'), false);
     $fragment->setVar('body', $legend, false);
     $content = $fragment->parse('core/page/section.php');
-    echo '<div class="col-lg-4">'.$content.'</div>';
+    echo '<div class="col-lg-4">'.$objectpanel.$content.'</div>';
 
     $fragment = new rex_fragment();
     $fragment->setVar('class', 'default avcal');
@@ -194,4 +195,5 @@ else {
 }
 
 ?>
+
 
