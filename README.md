@@ -8,8 +8,8 @@ Bindet einen Belegungskalender ein, der per AJAX im Backend bearbeitet werden ka
 
 Basiert auf: 
 
-- Belegungskalender von Tim Filler
-- mp Belegungskalender / maple park
+- REDAXO4-AddOn: Belegungskalender von Tim Filler
+- REDAXO4-AddOn: mp Belegungskalender / maple park
 - [Belegegungskalender von Chris Bolson](http://www.cbolson.com/code/availability-calendar/)
 
 
