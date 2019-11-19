@@ -1,5 +1,5 @@
 package: avcal
-version: '0.0.1-dev'
+version: '0.0.8-dev'
 author: Friends Of REDAXO
 supportpage: https://github.com/FriendsOfREDAXO/avcal
 title: 'Belegungskalender'
