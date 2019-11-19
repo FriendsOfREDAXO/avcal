@@ -1,5 +1,6 @@
-# avcal
-🐣 Einfacher Belegungskalender für REDAXO 5
+# avcal - Belegungskalender
+
+🐣 Einfacher Belegungskalender für REDAXO 5, portiert aus REDAXO 4
 
 ![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/avcal/assets/screenshot.png)
 
