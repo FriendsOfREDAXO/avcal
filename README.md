@@ -2,13 +2,15 @@
 
 🐣 Einfacher Belegungskalender für REDAXO 5, portiert aus REDAXO 4
 
+Bindet einen Belegungskalender ein, der per AJAX im Backend bearbeitet werden kann.
+
 ![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/avcal/assets/screenshot.png)
 
 Basiert auf: 
 
 - Belegungskalender von Tim Filler
 - mp Belegungskalender / maple park
-
+- [Belegegungskalender von Chris Bolson](http://www.cbolson.com/code/availability-calendar/)
 
 
 ## Modul-Eingabe
