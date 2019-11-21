@@ -1,5 +1,4 @@
-// wait till the DOM is loaded
-jQuery(function($) {
+$(document).on('rex:ready', function() {
   // attach a submit handler to the form
   $('table.calendar tbody a').click(function(event){
     // get the href of the link
