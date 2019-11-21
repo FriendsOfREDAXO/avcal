@@ -3,7 +3,7 @@ version: '1.0.0'
 author: Friends Of REDAXO
 supportpage: https://github.com/FriendsOfREDAXO/avcal
 title: 'Belegungskalender'
-nav_icon: fa-share
+nav_icon: fa-calendar
 
 page:
     title: 'Belegungskalender'
