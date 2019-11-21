@@ -17,6 +17,7 @@ Ein CSS für das Frontend findet sich im Assets-Ordner.
 ## Änderungen gegenüber 4.x - Version: 
 
 - Settings entfernt
+- Hilfeseite entfernt
 - Modul: Anzahl der Tabellen je Zeile entfernt, sollte je Präsenz per CSS gelöst werden. 
 
 ## Autor
