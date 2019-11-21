@@ -2,7 +2,7 @@
 
 Einfacher Belegungskalender für REDAXO 5, portiert aus REDAXO 4
 
-Bindet einen Belegungskalender ein, der per AJAX im Backend bearbeitet werden kann.
+Bindet einen Belegungskalender ein, der per AJAX im Backend bearbeitet werden kann. Es können mehrere Objekte verwaltet werden. Das AddOn liefert keine Buchungsfunktionen oder dergleichen. Diese können ggf. leicht in Kombination mit YForm realisiert werden. 
 
 ![Screenshot](https://raw.githubusercontent.com/FriendsOfREDAXO/avcal/assets/screenshot.png)
 
@@ -19,8 +19,10 @@ Ein CSS für das Frontend findet sich im Assets-Ordner.
 - Settings entfernt
 - Hilfeseite entfernt
 - Modul: Anzahl der Tabellen je Zeile entfernt, sollte je Präsenz per CSS gelöst werden. 
+- Anpassung an REDAXO 5 - Layout
 
-## Autor
+## Credits
+
 **Friends Of REDAXO**  
 http://www.redaxo.org  
 https://github.com/FriendsOfREDAXO  
@@ -29,7 +31,11 @@ https://github.com/FriendsOfREDAXO
 [Community-Projekt](https://github.com/FriendsOfREDAXO)
 
 
-## Modul-Eingabe
+## Modul
+
+Ausgabemodul für das Frontend
+
+### Modul-Eingabe
 
 ```php
 <?php
@@ -140,7 +146,7 @@ if (rex_addon::get('avcal')->isAvailable()) {
 ```
 
 
-## Modul-Ausgabe
+### Modul-Ausgabe
 
 ```php
 
