@@ -2,13 +2,13 @@
 $month_to_show = 12;
 
 // initialize request parameters
-$call_by = rex_request('call_by', 'string');
+$call_by = rex_escape(rex_request('call_by', 'string'));
 $object_id = rex_request('object_id', 'integer', 0);
-$date = rex_request('date', 'string', date('Y-m-d'));
-$year = rex_request('year', 'string', date('Y', strtotime($date)));
-$month = rex_request('month', 'string', date('m', strtotime($date)));
-$func = rex_request('func', 'string');
-$state = rex_request('state', 'string');
+$date = rex_escape(rex_request('date', 'string', date('Y-m-d')));
+$year = rex_escape(rex_request('year', 'string', date('Y', strtotime($date))));
+$month = rex_escape(rex_request('month', 'string', date('m', strtotime($date))));
+$func = rex_escape(rex_request('func', 'string'));
+$state = rex_escape(rex_request('state', 'string'));
 
 // initialize a database connection
 $sql = rex_sql::factory();
@@ -17,9 +17,7 @@ $sql = rex_sql::factory();
 // database actions and response for ajax requests
 if ($call_by == 'ajax') {
 
-  // clean all active output buffers and start a new one
-    ob_end_clean();
-    ob_start();
+    rex_response::cleanOutputBuffers();
 
     // send header
     header('Content-Type: text/plain');
@@ -71,10 +69,6 @@ if ($call_by == 'ajax') {
         // ToDo: send more informations about the error
         echo 'error';
     }
- 
-
-    // send the content of the output buffer
-    ob_end_flush();
     exit();
 }
 
