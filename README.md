@@ -1,6 +1,6 @@
 # avcal - Belegungskalender
 
-🐣 Einfacher Belegungskalender für REDAXO 5, portiert aus REDAXO 4
+Einfacher Belegungskalender für REDAXO 5, portiert aus REDAXO 4
 
 Bindet einen Belegungskalender ein, der per AJAX im Backend bearbeitet werden kann.
 
@@ -11,6 +11,21 @@ Basiert auf:
 - REDAXO4-AddOn: Belegungskalender von Tim Filler
 - REDAXO4-AddOn: mp Belegungskalender / maple park
 - [Belegegungskalender von Chris Bolson](http://www.cbolson.com/code/availability-calendar/)
+
+Ein CSS für das Frontend findet sich im Assets-Ordner. 
+
+## Änderungen gegenüber 4.x - Version: 
+
+- Settings entfernt
+- Modul: Anzahl der Tabellen je Zeile entfernt, sollte je Präsenz per CSS gelöst werden. 
+
+## Autor
+**Friends Of REDAXO**  
+http://www.redaxo.org  
+https://github.com/FriendsOfREDAXO  
+
+**Projekt-Lead**
+[Community-Projekt](https://github.com/FriendsOfREDAXO)
 
 
 ## Modul-Eingabe
