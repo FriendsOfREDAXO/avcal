@@ -70,70 +70,88 @@ if (rex_addon::get('avcal')->isAvailable()) {
   $select_show_nav->addOption(rex_i18n::msg('no'), '0');
   $select_show_nav->setSelected("REX_VALUE[4]");
   ?>
-  
+
 <div class="form-horizontal">
 
-<div class="form-group">
-	<label class="col-sm-4 control-label"><?=rex_i18n::msg('avcal_module_select_object')?></label>
-	    <div class="col-sm-8">
-	         <?=$select_object->get()?>
-	    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label"><?=rex_i18n::msg('avcal_module_select_object')?></label>
+        <div class="col-sm-8">
+            <?=$select_object->get()?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-4 control-label"><?=rex_i18n::msg('avcal_module_month_to_show')?></label>
+        <div class="col-sm-8">
+            <?=$select_month_num->get()?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-4 control-label"><?=rex_i18n::msg('avcal_module_show_navigation')?></label>
+        <div class="col-sm-8">
+            <?=$select_show_nav->get()?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-4 control-label"><?=rex_i18n::msg('avcal_module_show_navigation')?></label>
+        <div class="col-sm-8">
+            <?=$select_show_nav->get()?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-4 control-label"><?=rex_i18n::msg('avcal_label_for', rex_i18n::msg('avcal_booked_none'))?></label>
+        <div class="col-sm-8">
+            <input
+                class="form-control"
+                type="text"
+                size="40"
+                name="REX_INPUT_VALUE[5]"
+                value="REX_VALUE[5]"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-4 control-label"><?=rex_i18n::msg('avcal_label_for', rex_i18n::msg('avcal_booked_all'))?></label>
+        <div class="col-sm-8">
+            <input
+                class="form-control"
+                type="text"
+                size="40"
+                name="REX_INPUT_VALUE[6]"
+                value="REX_VALUE[6]"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-4 control-label"><?=rex_i18n::msg('avcal_label_for', rex_i18n::msg('avcal_booked_am'))?></label>
+        <div class="col-sm-8">
+            <input
+                class="form-control"
+                type="text"
+                size="40"
+                name="REX_INPUT_VALUE[7]"
+                value="REX_VALUE[7]"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-4 control-label"><?=rex_i18n::msg('avcal_label_for', rex_i18n::msg('avcal_booked_pm'))?></label>
+        <div class="col-sm-8">
+            <input
+                class="form-control"
+                type="text"
+                size="40"
+                name="REX_INPUT_VALUE[8]"
+                value="REX_VALUE[8]"/>
+        </div>
+    </div>
+
 </div>
-  
-<div class="form-group">
-	<label class="col-sm-4 control-label"><?=rex_i18n::msg('avcal_module_month_to_show')?></label>
-	    <div class="col-sm-8">
-	         <?=$select_month_num->get()?>
-	    </div>
-</div>  
-  
-<div class="form-group">
-	<label class="col-sm-4 control-label"><?=rex_i18n::msg('avcal_module_show_navigation')?></label>
-	    <div class="col-sm-8">
-	         <?=$select_show_nav->get()?>
-	    </div>
-</div>   
-  
 
-<div class="form-group">
-	<label class="col-sm-4 control-label"><?=rex_i18n::msg('avcal_module_show_navigation')?></label>
-	    <div class="col-sm-8">
-	         <?=$select_show_nav->get()?>
-	    </div>
-</div>   
-  
-<div class="form-group">
-	<label class="col-sm-4 control-label"><?=rex_i18n::msg('avcal_label_for', rex_i18n::msg('avcal_booked_none'))?></label>
-	    <div class="col-sm-8">
-	         <input class="form-control" type="text" size="40" name="REX_INPUT_VALUE[5]" value="REX_VALUE[5]" />
-	    </div>
-</div>     
-  
-<div class="form-group">
-	<label class="col-sm-4 control-label"><?=rex_i18n::msg('avcal_label_for', rex_i18n::msg('avcal_booked_all'))?></label>
-	    <div class="col-sm-8">
-	         <input class="form-control" type="text" size="40" name="REX_INPUT_VALUE[6]" value="REX_VALUE[6]" />
-	    </div>
-</div>     
-   
-  
-<div class="form-group">
-	<label class="col-sm-4 control-label"><?=rex_i18n::msg('avcal_label_for', rex_i18n::msg('avcal_booked_am'))?></label>
-	    <div class="col-sm-8">
-	         <input class="form-control" type="text" size="40" name="REX_INPUT_VALUE[7]" value="REX_VALUE[7]" />
-	    </div>
-</div>       
-  
-<div class="form-group">
-	<label class="col-sm-4 control-label"><?=rex_i18n::msg('avcal_label_for', rex_i18n::msg('avcal_booked_pm'))?></label>
-	    <div class="col-sm-8">
-	         <input class="form-control" type="text" size="40" name="REX_INPUT_VALUE[8]" value="REX_VALUE[8]" />
-	    </div>
-</div>      
-
-</div>
-
-  <?php
+<?php
 
 } else {
 
@@ -237,7 +255,8 @@ $calendar->setOption('week_start', 1);
 
 }
 
-    ?></div>
+    ?>
+</div>
 
 ```
 
