@@ -28,7 +28,7 @@ http://www.redaxo.org
 https://github.com/FriendsOfREDAXO  
 
 **Projekt-Lead**
-[Community-Projekt](https://github.com/FriendsOfREDAXO)
+[Thomas Skerbis](https://github.com/skerbis)
 
 
 ## Modul
