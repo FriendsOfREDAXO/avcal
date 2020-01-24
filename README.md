@@ -251,7 +251,7 @@ $calendar->setOption('week_start', 1);
 } else {
 
   // addon is not available
-  echo rex_view::error('Dieses Modul benötigt das "mp_availability_calendar" Addon!');
+  echo rex_view::error('Dieses Modul benötigt das "avcal" Addon!');
 
 }
 
