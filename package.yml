@@ -8,6 +8,7 @@ perm: avcal[]
 
 page:
     title: 'Belegungskalender'
+    perm_general_avcal[page] = avcal: Belegungskalender verwalten
     perm: avcal[page]
     icon: 'rex-icon rex-icon fa-calendar'
     subpages:
