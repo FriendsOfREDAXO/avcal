@@ -1,8 +1,6 @@
 
 # addon:avcal de_de_utf8
-
-perm_general_avcal[] = AvCal-Belegungskalender
-
+perm_general_avcal[page] = AvCal :: Belegungskalender
 avcal_title = Belegungskalender
 avcal_calendar = Kalender
 avcal_objects = Objekte
