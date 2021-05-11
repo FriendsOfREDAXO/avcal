@@ -180,9 +180,6 @@ if (rex_addon::get('avcal')->isAvailable()) {
     // number of months to show on one page
     $month_to_show = "REX_VALUE[2]";
 
-    // how many months to show in a row
-    $month_per_row = "REX_VALUE[3]";
-
     // should a navigation be displayed
     $show_nav = "REX_VALUE[4]";
 
