@@ -168,6 +168,7 @@ if (rex_addon::get('avcal')->isAvailable()) {
 
 ```php
 
+<link href="/assets/addons/avcal/frontend.css" rel="stylesheet" media="screen" type="text/css">
 <div class="avcal">
 <?php
 // Modul-Output
@@ -232,7 +233,7 @@ $calendar->setOption('week_start', 1);
     // show the calendar
     for ($i = 0; $i < $month_to_show; $i++) {
       echo $calendar->getMonthView($year, $month + $i);
-      if (($i % $month_per_row + 1) == $month_per_row) echo $clear;
+     
     }
 
     // show the legend
@@ -251,12 +252,11 @@ $calendar->setOption('week_start', 1);
 } else {
 
   // addon is not available
-  echo rex_view::error('Dieses Modul benötigt das "avcal" Addon!');
+  echo rex_view::error('Dieses Modul benötigt das "mp_availability_calendar" Addon!');
 
 }
 
-    ?>
-</div>
+    ?></div>
 
 ```
 
