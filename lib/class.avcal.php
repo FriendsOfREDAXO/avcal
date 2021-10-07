@@ -261,8 +261,14 @@ class avcal
         //------------------------------------------------------- markup columns
         $output .= $col."\n";
 
+        $headstyle = '';
+        if (rex::isBackend())
+        {
+          $headstyle = 'class="bg-primary"'; 
+        }
+      
         //----------------------------------------------------------- table head
-        $output .= '<thead class="bg-primary">'."\n";
+        $output .= '<thead'. $headstyle .'>'."\n";
         $output .= '<tr>';
         $output .= $th;
         $output .= '</tr>'."\n";
