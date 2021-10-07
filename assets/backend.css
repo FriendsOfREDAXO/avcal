@@ -13,7 +13,6 @@
   width: 33%;
   text-align: center;
   float: left;
-  /*outline: 1px solid #c00;*/
 }
 .avcal ul.prev_next li.prev a { text-align: left; }
 .avcal ul.prev_next li.curr { font-weight: bold; }
@@ -31,9 +30,9 @@
 .avcal table.calendar {
   float: left;
   margin: 10px 0px 20px 15px;
-  border: 1px solid #dddddd;
+  /* border: 1px solid #dddddd; */
   width: 23%;
-  background-color: #ddd;height: 244px;
+  /* background-color: #ddd; */height: 244px;
   box-shadow:0 2px 8px rgba(0, 0, 0, 0.08);
 
 min-width: 244px;}
@@ -41,18 +40,14 @@ min-width: 244px;}
 .avcal table.calendar caption {
   text-align:center;
   padding: 1px;
-  background-color: #000;
   font-weight: bold;
   font-size: 1.1em;color: #fff;
 }
 .avcal table.calendar thead th {
   text-align:center;
   padding: 1px;
-  color: #ffffff;
-  background-color: #14568a;
 }
 .avcal table.calendar tbody td {
-  border: 1px solid #fff;
   width: 30px;
   height: 30px;
   text-align: center;
@@ -60,10 +55,8 @@ min-width: 244px;}
 }
 .avcal table.calendar tbody td a {
   display: block;
-  color: #333;
 }
 .avcal table.calendar tbody td.pad {
-  background-color: #fff;
 }
 .avcal table.calendar tbody td.booked-am {
   background: url(/redaxo/../assets/addons/avcal/booked-am.gif) no-repeat center center;
@@ -76,9 +69,6 @@ min-width: 244px;}
 }
 .avcal table.calendar tbody td a:hover {
   font-weight: bold;
-  color: #000;
-  text-decoration: none;
-  outline: 1px solid #14568a;
   background: #eee;
 }
 
@@ -158,3 +148,5 @@ min-width: 244px;}
 .avcal ul.legend li.booked-all {
   background: url(/redaxo/../assets/addons/avcal/booked-all.gif) no-repeat left center;
 }
+
+
