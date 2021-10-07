@@ -67,6 +67,9 @@ min-width: 244px;}
 .avcal table.calendar tbody td.booked-all {
   background: url(/redaxo/../assets/addons/avcal/booked-all.gif) no-repeat center center;
 }
+
+.avcal .booked-all a, .avcal .booked-am a, .avcal .booked-pm a { color: #000!important}
+
 .avcal table.calendar tbody td a:hover {
   font-weight: bold;
   background: #eee;
@@ -148,5 +151,6 @@ min-width: 244px;}
 .avcal ul.legend li.booked-all {
   background: url(/redaxo/../assets/addons/avcal/booked-all.gif) no-repeat left center;
 }
+
 
 
