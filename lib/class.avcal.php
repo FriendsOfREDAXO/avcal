@@ -264,7 +264,7 @@ class avcal
         $headstyle = '';
         if (rex::isBackend())
         {
-          $headstyle = 'class="bg-primary"'; 
+          $headstyle = ' class="bg-primary"'; 
         }
       
         //----------------------------------------------------------- table head
