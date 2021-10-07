@@ -262,7 +262,7 @@ class avcal
         $output .= $col."\n";
 
         //----------------------------------------------------------- table head
-        $output .= '<thead>'."\n";
+        $output .= '<thead class="bg-primary">'."\n";
         $output .= '<tr>';
         $output .= $th;
         $output .= '</tr>'."\n";
