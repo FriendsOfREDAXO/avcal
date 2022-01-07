@@ -21,6 +21,10 @@ Ein CSS für das Frontend findet sich im Assets-Ordner.
 - Modul: Anzahl der Tabellen je Zeile entfernt, sollte je Präsenz per CSS gelöst werden. 
 - Anpassung an REDAXO 5 - Layout
 
+## Alternative, viel ausführlicher, besser und moderner
+
+[Buchungskalender](https://github.com/dtpop/buchungskalender)
+
 ## Credits
 
 **Friends Of REDAXO**  
