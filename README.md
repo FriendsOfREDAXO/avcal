@@ -10,7 +10,7 @@ Basiert auf:
 
 - REDAXO4-AddOn: Belegungskalender von Tim Filler
 - REDAXO4-AddOn: mp Belegungskalender / maple park
-- [Belegegungskalender von Chris Bolson](http://www.cbolson.com/code/availability-calendar/)
+- [Belegegungskalender von Chris Bolson](https://www.ajaxavailabilitycalendar.com)
 
 Ein CSS für das Frontend findet sich im Assets-Ordner. 
 
