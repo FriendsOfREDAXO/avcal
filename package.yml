@@ -1,5 +1,5 @@
 package: avcal
-version: '1.2.0'
+version: '1.2.1'
 author: Friends Of REDAXO
 supportpage: https://github.com/FriendsOfREDAXO/avcal
 title: 'Belegungskalender'
@@ -18,3 +18,5 @@ page:
             { title: 'translate:avcal_objects', icon: rex-icon fa-list }
 requires:
     redaxo: ^5.7.0
+    php:
+       version: '>=7.0, <9'
