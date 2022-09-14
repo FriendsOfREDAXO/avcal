@@ -1,5 +1,8 @@
 # avcal - Belegungskalender
 
+
+⚠️ Die Entwicklung des AddOns wurde eingestellt und wird an dieser Stelle nicht länger gepflegt. / Deprecated
+
 Einfacher Belegungskalender für REDAXO 5, portiert aus REDAXO 4
 
 Bindet einen Belegungskalender ein, der per AJAX im Backend bearbeitet werden kann. Es können mehrere Objekte verwaltet werden. Das AddOn liefert keine Buchungsfunktionen oder dergleichen. Diese können ggf. leicht in Kombination mit YForm realisiert werden. 
