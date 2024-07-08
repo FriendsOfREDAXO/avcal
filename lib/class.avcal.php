@@ -105,18 +105,18 @@ class avcal
     public function getMonthView(int $year = null, int $month = null, string $calendar_class = 'calendar'): string
     {
         $year = $year ?? $this->year;
-        $month = $month ?? str_pad($this->month, 2, '0', STR_PAD_LEFT);
+        $month = $month ?? str_pad((string)$this->month, 2, '0', STR_PAD_LEFT);
 
         if ($month > 12) {
-            $month = str_pad($month - 12, 2, '0', STR_PAD_LEFT);
+            $month = str_pad((string)($month - 12), 2, '0', STR_PAD_LEFT);
             $year += 1;
         } elseif ($month < 1) {
-            $month = str_pad($month + 12, 2, '0', STR_PAD_LEFT);
+            $month = str_pad((string)($month + 12), 2, '0', STR_PAD_LEFT);
             $year -= 1;
         }
 
         $this->setBookedDates($year, $month);
-        $week_start = $this->getOption('week_start');
+        $week_start = (int)$this->getOption('week_start');
         $month_start_date = strtotime("{$year}-{$month}-01");
         $first_day_falls_on = $this->getDayOfWeek($month_start_date);
         $days_in_month = (int)date('t', $month_start_date);
@@ -125,13 +125,16 @@ class avcal
         $prepend = ($start_week_offset < 0) ? 7 - abs($start_week_offset) : $start_week_offset;
         $last_day_falls_on = $this->getDayOfWeek($month_end_date);
 
+        $formatter = new IntlDateFormatter('de_DE', IntlDateFormatter::FULL, IntlDateFormatter::FULL);
+        $formatter->setPattern('MMMM yyyy');
+
         $output = '<table class="' . $calendar_class . '" cellspacing="0">' . "\n";
-        $output .= '<caption>' . ucfirst(strftime('%B %Y', $month_start_date)) . '</caption>' . "\n";
+        $output .= '<caption>' . ucfirst($formatter->format($month_start_date)) . '</caption>' . "\n";
 
         $col = '';
         $th = '';
         for ($i = 1, $j = $week_start, $t = (3 + $week_start) * 86400; $i <= 7; $i++, $j++, $t += 86400) {
-            $localized_day_name = strftime('%A', $t);
+            $localized_day_name = datefmt_create('de_DE', IntlDateFormatter::FULL, IntlDateFormatter::FULL, 'UTC', IntlDateFormatter::TRADITIONAL, 'cccc')->format($t);
             $day_name = strtolower(date('l', $t));
             $col .= '<col class="' . $day_name . '" />';
             $th .= '<th scope="col" title="' . ucfirst($localized_day_name) . '">' . strtoupper($localized_day_name[0]) . '</th>';
@@ -180,7 +183,7 @@ class avcal
             }
 
             $day_class = isset($classes) ? ' class="' . implode(' ', $classes) . '"' : '';
-            $output .= '<td' . $day_class . ' title="' . ucwords(strftime('%A, %e. %B %Y', strtotime($day_date))) . '">';
+            $output .= '<td' . $day_class . ' title="' . ucwords(datefmt_create('de_DE', IntlDateFormatter::FULL, IntlDateFormatter::FULL, 'UTC', IntlDateFormatter::TRADITIONAL, 'EEEE, d. MMMM yyyy')->format(strtotime($day_date))) . '">';
             unset($day_class, $classes);
 
             if ($this->mode == 'edit') {
@@ -224,9 +227,13 @@ class avcal
 
         $start_date = gmmktime(0, 0, 0, $month, 1, $year);
         $end_date = gmmktime(0, 0, 0, $month + $view - 1, 1, $year);
+
+        $formatter = new IntlDateFormatter('de_DE', IntlDateFormatter::FULL, IntlDateFormatter::FULL);
+        $formatter->setPattern('MMMM yyyy');
+
         $date_txt = $start_date < $end_date
-            ? gmstrftime('%B %Y', $start_date) . ' - ' . gmstrftime('%B %Y', $end_date)
-            : gmstrftime('%B %Y', $start_date);
+            ? $formatter->format($start_date) . ' - ' . $formatter->format($end_date)
+            : $formatter->format($start_date);
 
         return '<h3 class="period">' . $date_txt . '</h3>' . "\n";
     }
@@ -253,21 +260,17 @@ class avcal
 
         $prev_start_date = gmmktime(0, 0, 0, $month - $view, 1, $year);
         $prev_end_date = gmmktime(0, 0, 0, $month - 1, 1, $year);
-        $prev_date_txt = $prev_start_date < $prev_end_date
-            ? gmstrftime('%B %Y', $prev_start_date) . ' - ' . gmstrftime('%B %Y', $prev_end_date)
-            : gmstrftime('%B %Y', $prev_start_date);
-
         $curr_start_date = gmmktime(0, 0, 0, $month, 1, $year);
         $curr_end_date = gmmktime(0, 0, 0, $month + $view - 1, 1, $year);
-        $curr_date_txt = $curr_start_date < $curr_end_date
-            ? gmstrftime('%B %Y', $curr_start_date) . ' - ' . gmstrftime('%B %Y', $curr_end_date)
-            : gmstrftime('%B %Y', $curr_start_date);
-
         $next_start_date = gmmktime(0, 0, 0, $month + $view, 1, $year);
         $next_end_date = gmmktime(0, 0, 0, $month + $view + $view - 1, 1, $year);
-        $next_date_txt = $next_start_date < $next_end_date
-            ? gmstrftime('%B %Y', $next_start_date) . ' - ' . gmstrftime('%B %Y', $next_end_date)
-            : gmstrftime('%B %Y', $next_start_date);
+
+        $formatter = new IntlDateFormatter('de_DE', IntlDateFormatter::FULL, IntlDateFormatter::FULL);
+        $formatter->setPattern('MMMM yyyy');
+
+        $prev_date_txt = $formatter->format($prev_start_date) . ' - ' . $formatter->format($prev_end_date);
+        $curr_date_txt = $formatter->format($curr_start_date) . ' - ' . $formatter->format($curr_end_date);
+        $next_date_txt = $formatter->format($next_start_date) . ' - ' . $formatter->format($next_end_date);
 
         if ($this->mode == 'edit') {
             $prev_link = $this->getOption('base_link') . '&amp;date=' . date('Y-m-d', $prev_start_date);
