@@ -14,10 +14,6 @@ Basiert auf:
 
 Ein CSS für das Frontend findet sich im Assets-Ordner. 
 
-## Alternative, mit Buchungsfunktion und viel mehr:
-
-[Buchungskalender](https://github.com/dtpop/buchungskalender)
-
 ## Credits
 
 **Friends Of REDAXO**  
