@@ -1,17 +1,44 @@
 /* =============================================================================
    AvCal – Frontend Stylesheet
+   Supports Light and Dark mode via CSS custom properties.
    ============================================================================= */
 
 /* ---------------------------------------------------------------------------
-   CSS Custom Properties
+   CSS Custom Properties – Light Mode (default)
    --------------------------------------------------------------------------- */
 :root {
-  --avcal-booked-all: #e74c3c;
-  --avcal-booked-am:  #e67e22;
-  --avcal-booked-pm:  #3498db;
-  --avcal-today-bg:   #dff0d8;
-  --avcal-border:     rgba(0, 0, 0, 0.1);
-  --avcal-hover-bg:   #f0f0f0;
+  --avcal-booked-all:   #e74c3c;
+  --avcal-booked-am:    #e67e22;
+  --avcal-booked-pm:    #3498db;
+  --avcal-today-bg:     #dff0d8;
+  --avcal-today-color:  #2d6a4f;
+  --avcal-today-ring:   #5cb85c;
+  --avcal-passed-op:    0.38;
+  --avcal-border:       rgba(0, 0, 0, 0.1);
+  --avcal-cell-border:  rgba(0, 0, 0, 0.07);
+  --avcal-hover-bg:     rgba(0, 0, 0, 0.05);
+  --avcal-caption-bg:   #555;
+  --avcal-caption-text: #fff;
+  --avcal-thead-bg:     #666;
+  --avcal-thead-text:   #fff;
+}
+
+/* ---------------------------------------------------------------------------
+   Dark Mode
+   --------------------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --avcal-today-bg:     #1e4d35;
+    --avcal-today-color:  #90d9b0;
+    --avcal-today-ring:   #52a87a;
+    --avcal-border:       rgba(255, 255, 255, 0.12);
+    --avcal-cell-border:  rgba(255, 255, 255, 0.07);
+    --avcal-hover-bg:     rgba(255, 255, 255, 0.07);
+    --avcal-caption-bg:   #333;
+    --avcal-caption-text: #e0e0e0;
+    --avcal-thead-bg:     #3a3a3a;
+    --avcal-thead-text:   #ccc;
+  }
 }
 
 /* ---------------------------------------------------------------------------
@@ -22,7 +49,9 @@ ul.prev_next {
   margin: 0.625rem 0;
   padding: 0;
   display: flex;
+  align-items: center;
   width: 100%;
+  gap: 0.5rem;
 }
 
 ul.prev_next li {
@@ -35,11 +64,18 @@ ul.prev_next li {
 
 ul.prev_next li.prev { text-align: left; }
 ul.prev_next li.next { text-align: right; }
-ul.prev_next li.curr { font-weight: bold; }
+ul.prev_next li.curr { font-weight: 600; }
 
 ul.prev_next li a {
   display: inline-block;
-  padding: 0.2rem 0.4rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background 0.15s ease;
+  text-decoration: none;
+}
+
+ul.prev_next li a:hover {
+  background: var(--avcal-hover-bg);
 }
 
 /* ---------------------------------------------------------------------------
@@ -51,19 +87,32 @@ table.calendar {
   width: 23%;
   min-width: 220px;
   border-collapse: collapse;
-  box-shadow: 0 1px 4px var(--avcal-border);
+  box-shadow: 0 1px 6px var(--avcal-border);
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 table.calendar caption {
   text-align: center;
-  font-weight: bold;
-  font-size: 1.05em;
+  font-weight: 600;
+  font-size: 1em;
   padding: 0.3rem;
+  background: var(--avcal-caption-bg);
+  color: var(--avcal-caption-text);
+}
+
+table.calendar thead {
+  background: var(--avcal-thead-bg);
 }
 
 table.calendar thead th {
   text-align: center;
-  padding: 0.2rem;
+  padding: 0.25rem 0.1rem;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--avcal-thead-text);
+  border-bottom: 1px solid var(--avcal-cell-border);
 }
 
 table.calendar tbody td {
@@ -71,18 +120,26 @@ table.calendar tbody td {
   height: 30px;
   text-align: center;
   vertical-align: middle;
+  font-size: 0.9em;
+  border: 1px solid var(--avcal-cell-border);
+  transition: background 0.12s ease;
+}
+
+table.calendar tbody td.pad {
+  border-color: transparent;
 }
 
 /* Today */
 table.calendar tbody td.today {
   background-color: var(--avcal-today-bg);
-  font-weight: bold;
-  border-radius: 3px;
+  color: var(--avcal-today-color);
+  font-weight: 700;
+  box-shadow: inset 0 0 0 2px var(--avcal-today-ring);
 }
 
 /* Passed days */
 table.calendar tbody td.passed {
-  opacity: 0.45;
+  opacity: var(--avcal-passed-op);
 }
 
 /* ---------------------------------------------------------------------------
@@ -123,6 +180,7 @@ ul.legend li {
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 0.35rem;
+  font-size: 0.9em;
 }
 
 ul.legend li::before {
@@ -136,11 +194,29 @@ ul.legend li::before {
 }
 
 ul.legend li.booked-all::before { background-color: var(--avcal-booked-all); }
-ul.legend li.booked-am::before  {
+ul.legend li.booked-am::before {
   background: linear-gradient(to bottom, var(--avcal-booked-am) 50%, transparent 50%);
 }
-ul.legend li.booked-pm::before  {
+ul.legend li.booked-pm::before {
   background: linear-gradient(to bottom, transparent 50%, var(--avcal-booked-pm) 50%);
+}
+
+/* ---------------------------------------------------------------------------
+   Responsive
+   --------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  table.calendar {
+    width: 45%;
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 580px) {
+  table.calendar {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem 0;
+  }
 }
 
 /* Clearfix */

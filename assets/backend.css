@@ -4,36 +4,53 @@
    ============================================================================= */
 
 /* ---------------------------------------------------------------------------
-   CSS Custom Properties
+   CSS Custom Properties – Light Mode (default)
    --------------------------------------------------------------------------- */
 :root {
-  --avcal-booked-all:  #e74c3c;
-  --avcal-booked-am:   #e67e22;
-  --avcal-booked-pm:   #3498db;
-  --avcal-today-bg:    #dff0d8;
-  --avcal-today-color: #2d6a4f;
-  --avcal-passed-op:   0.4;
-  --avcal-pad-bg:      transparent;
-  --avcal-border:      rgba(0, 0, 0, 0.08);
-  --avcal-hover-bg:    #f5f5f5;
-  --avcal-text:        inherit;
+  --avcal-booked-all:    #e74c3c;
+  --avcal-booked-am:     #e67e22;
+  --avcal-booked-pm:     #3498db;
+  --avcal-today-bg:      #dff0d8;
+  --avcal-today-color:   #2d6a4f;
+  --avcal-today-ring:    #5cb85c;
+  --avcal-passed-op:     0.38;
+  --avcal-border:        rgba(0, 0, 0, 0.09);
+  --avcal-cell-border:   rgba(0, 0, 0, 0.07);
+  --avcal-hover-bg:      rgba(0, 0, 0, 0.05);
+  --avcal-hover-text:    inherit;
+  --avcal-text:          inherit;
+  --avcal-table-shadow:  0 2px 10px rgba(0, 0, 0, 0.08);
+  --avcal-btn-focus-ring: rgba(52, 152, 219, 0.5);
 }
 
-body.rex-theme-dark,
+/* ---------------------------------------------------------------------------
+   Dark Mode – explicit class
+   --------------------------------------------------------------------------- */
+body.rex-theme-dark {
+  --avcal-today-bg:      #1e4d35;
+  --avcal-today-color:   #90d9b0;
+  --avcal-today-ring:    #52a87a;
+  --avcal-border:        rgba(255, 255, 255, 0.1);
+  --avcal-cell-border:   rgba(255, 255, 255, 0.06);
+  --avcal-hover-bg:      rgba(255, 255, 255, 0.07);
+  --avcal-table-shadow:  0 2px 10px rgba(0, 0, 0, 0.35);
+  --avcal-btn-focus-ring: rgba(100, 180, 240, 0.55);
+}
+
+/* ---------------------------------------------------------------------------
+   Dark Mode – auto (system preference)
+   --------------------------------------------------------------------------- */
 @media (prefers-color-scheme: dark) {
   body.rex-has-theme:not(.rex-theme-light) {
-    --avcal-today-bg:    #1a4731;
-    --avcal-today-color: #a8e6cf;
-    --avcal-border:      rgba(255, 255, 255, 0.1);
-    --avcal-hover-bg:    #2a2a2a;
+    --avcal-today-bg:      #1e4d35;
+    --avcal-today-color:   #90d9b0;
+    --avcal-today-ring:    #52a87a;
+    --avcal-border:        rgba(255, 255, 255, 0.1);
+    --avcal-cell-border:   rgba(255, 255, 255, 0.06);
+    --avcal-hover-bg:      rgba(255, 255, 255, 0.07);
+    --avcal-table-shadow:  0 2px 10px rgba(0, 0, 0, 0.35);
+    --avcal-btn-focus-ring: rgba(100, 180, 240, 0.55);
   }
-}
-
-body.rex-theme-dark {
-  --avcal-today-bg:    #1a4731;
-  --avcal-today-color: #a8e6cf;
-  --avcal-border:      rgba(255, 255, 255, 0.1);
-  --avcal-hover-bg:    #2a2a2a;
 }
 
 /* ---------------------------------------------------------------------------
@@ -42,9 +59,11 @@ body.rex-theme-dark {
 .avcal ul.prev_next {
   list-style: none;
   margin: 0 0 1.25rem 0;
-  padding: 0.5rem 0;
+  padding: 0.4rem 0;
   display: flex;
+  align-items: center;
   width: 100%;
+  gap: 0.5rem;
 }
 
 .avcal ul.prev_next li {
@@ -54,11 +73,19 @@ body.rex-theme-dark {
 
 .avcal ul.prev_next li.prev { text-align: left; }
 .avcal ul.prev_next li.next { text-align: right; }
-.avcal ul.prev_next li.curr { font-weight: bold; }
+.avcal ul.prev_next li.curr { font-weight: 600; }
 
 .avcal ul.prev_next li a {
   display: inline-block;
-  padding: 0.2rem 0.5rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  transition: background 0.15s ease, opacity 0.15s ease;
+  text-decoration: none;
+}
+
+.avcal ul.prev_next li a:hover {
+  background: var(--avcal-hover-bg);
+  text-decoration: none;
 }
 
 /* ---------------------------------------------------------------------------
@@ -70,21 +97,29 @@ body.rex-theme-dark {
   width: 23%;
   min-width: 220px;
   height: 244px;
-  box-shadow: 0 2px 8px var(--avcal-border);
+  box-shadow: var(--avcal-table-shadow);
   border-collapse: collapse;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 .avcal table.calendar caption {
   text-align: center;
-  padding: 0.25rem;
-  font-weight: bold;
-  font-size: 1.05em;
+  padding: 0.3rem 0.25rem;
+  font-weight: 600;
+  font-size: 1em;
   color: #fff;
+  letter-spacing: 0.01em;
 }
 
 .avcal table.calendar thead th {
   text-align: center;
-  padding: 0.25rem;
+  padding: 0.3rem 0.1rem;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-transform: uppercase;
+  opacity: 0.85;
+  border-bottom: 1px solid var(--avcal-cell-border);
 }
 
 .avcal table.calendar tbody td {
@@ -93,14 +128,21 @@ body.rex-theme-dark {
   text-align: center;
   vertical-align: middle;
   position: relative;
+  border: 1px solid var(--avcal-cell-border);
+  transition: background 0.12s ease;
+}
+
+.avcal table.calendar tbody td.pad {
+  border-color: transparent;
 }
 
 .avcal table.calendar tbody td a,
 .avcal table.calendar tbody td button {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
-  line-height: 30px;
   color: var(--avcal-text);
   text-decoration: none;
   background: none;
@@ -109,20 +151,34 @@ body.rex-theme-dark {
   margin: 0;
   cursor: pointer;
   font: inherit;
+  font-size: 0.9em;
+  border-radius: 2px;
+  transition: background 0.12s ease, font-weight 0.1s ease;
 }
 
 .avcal table.calendar tbody td a:hover,
 .avcal table.calendar tbody td button:hover {
-  font-weight: bold;
+  font-weight: 700;
   background: var(--avcal-hover-bg);
+}
+
+.avcal table.calendar tbody td button:focus-visible {
+  outline: 2px solid var(--avcal-btn-focus-ring);
+  outline-offset: -2px;
+  border-radius: 3px;
 }
 
 /* Today */
 .avcal table.calendar tbody td.today {
   background-color: var(--avcal-today-bg);
   color: var(--avcal-today-color);
-  font-weight: bold;
-  border-radius: 3px;
+  font-weight: 700;
+  box-shadow: inset 0 0 0 2px var(--avcal-today-ring);
+}
+
+.avcal table.calendar tbody td.today a,
+.avcal table.calendar tbody td.today button {
+  color: var(--avcal-today-color);
 }
 
 /* Passed days */
@@ -134,13 +190,17 @@ body.rex-theme-dark {
    Booking states – pure CSS, no GIF images
    --------------------------------------------------------------------------- */
 
+/* Full day booked */
 .avcal table.calendar tbody td.booked-all {
   background-color: var(--avcal-booked-all);
 }
 .avcal table.calendar tbody td.booked-all a,
-.avcal table.calendar tbody td.booked-all button { color: #fff; }
+.avcal table.calendar tbody td.booked-all button {
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+}
 
-/* Morning booked – top 50% coloured, bottom transparent */
+/* Morning booked – top 50% coloured */
 .avcal table.calendar tbody td.booked-am {
   background: linear-gradient(
     to bottom,
@@ -150,10 +210,14 @@ body.rex-theme-dark {
     transparent 100%
   );
 }
+/* Text placed in center – upper half colored, lower not → white legible */
 .avcal table.calendar tbody td.booked-am a,
-.avcal table.calendar tbody td.booked-am button { color: #fff; }
+.avcal table.calendar tbody td.booked-am button {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
 
-/* Afternoon booked – top transparent, bottom 50% coloured */
+/* Afternoon booked – bottom 50% coloured */
 .avcal table.calendar tbody td.booked-pm {
   background: linear-gradient(
     to bottom,
@@ -164,7 +228,10 @@ body.rex-theme-dark {
   );
 }
 .avcal table.calendar tbody td.booked-pm a,
-.avcal table.calendar tbody td.booked-pm button { color: #fff; }
+.avcal table.calendar tbody td.booked-pm button {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
 
 /* ---------------------------------------------------------------------------
    Legend
@@ -172,7 +239,7 @@ body.rex-theme-dark {
 .avcal .legend dl.booking-states {
   display: grid;
   grid-template-columns: 1.5rem 1fr;
-  gap: 0.5rem 0.75rem;
+  gap: 0.45rem 0.75rem;
   align-items: center;
   margin: 0;
 }
@@ -182,9 +249,17 @@ body.rex-theme-dark {
   height: 1.5rem;
   border-radius: 3px;
   border: 1px solid var(--avcal-border);
+  flex-shrink: 0;
 }
 
-.avcal .legend dt.booked-none { background: transparent; }
+.avcal .legend dd {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.avcal .legend dt.booked-none {
+  background: transparent;
+}
 
 .avcal .legend dt.booked-all {
   background-color: var(--avcal-booked-all);
@@ -213,4 +288,22 @@ body.rex-theme-dark {
   content: '';
   display: table;
   clear: both;
+}
+
+/* ---------------------------------------------------------------------------
+   Responsive – stack calendars on small viewports
+   --------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .avcal table.calendar {
+    width: 45%;
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 580px) {
+  .avcal table.calendar {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem 0;
+  }
 }
