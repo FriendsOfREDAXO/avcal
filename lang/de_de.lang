@@ -56,4 +56,6 @@ avcal_module_show_navigation = Navigation anzeigen
 avcal_create_objects = Objekte anlegen
 avcal_object_intro = Auf der Unterseite "<a href="index.php?page=avcal&amp;subpage=objects">Objekte</a>" müssen Sie zunächst die Objekte anlegen, für die Sie die Belegung erfassen wollen. Name und Beschreibung sind nur für das Backend gedacht und werden nicht im Frontend ausgegeben.
 avcal_create_module = Modul erstellen
-avcal_module_intro = Bevor Sie den Belegungskalendar im Frontend benutzen können, müssen Sie ein Modul anlegen. Da bei der Kalenderausgabe die PHP-Funktion "strftime" benutzt wird, müssen in der Modul-Ausgabe mittels "setlocale" die entsprechenden "locales" gesetzt werden.
+avcal_module_intro = Bevor Sie den Belegungskalendar im Frontend benutzen können, müssen Sie ein Modul anlegen.
+avcal_ical_export = Als Kalender abonnieren (iCal)
+avcal_ical_link_title = Diesen Kalender in Ihrer Kalenderanwendung abonnieren

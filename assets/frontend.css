@@ -1,106 +1,152 @@
-/*
-  Availability Calendar : navigation through month
--------------------------------------------------------------------------------*/
+/* =============================================================================
+   AvCal – Frontend Stylesheet
+   ============================================================================= */
 
+/* ---------------------------------------------------------------------------
+   CSS Custom Properties
+   --------------------------------------------------------------------------- */
+:root {
+  --avcal-booked-all: #e74c3c;
+  --avcal-booked-am:  #e67e22;
+  --avcal-booked-pm:  #3498db;
+  --avcal-today-bg:   #dff0d8;
+  --avcal-border:     rgba(0, 0, 0, 0.1);
+  --avcal-hover-bg:   #f0f0f0;
+}
+
+/* ---------------------------------------------------------------------------
+   Navigation (prev / next)
+   --------------------------------------------------------------------------- */
 ul.prev_next {
-  list-style-type: none !important;
-  margin: 10px 0;
+  list-style: none !important;
+  margin: 0.625rem 0;
   padding: 0;
+  display: flex;
   width: 100%;
 }
 
 ul.prev_next li {
-  list-style-type: none !important;
+  list-style: none !important;
   margin: 0 !important;
   padding: 0 !important;
-  width: 33%;
+  flex: 1;
   text-align: center;
-  float: left;
-  /*outline: 1px solid #c00;*/
 }
-ul.prev_next li.prev a { text-align: left; }
+
+ul.prev_next li.prev { text-align: left; }
+ul.prev_next li.next { text-align: right; }
 ul.prev_next li.curr { font-weight: bold; }
-ul.prev_next li.next a { text-align: right; }
 
 ul.prev_next li a {
-  display: block;
-  width: 100%;
+  display: inline-block;
+  padding: 0.2rem 0.4rem;
 }
 
-/*
-  Availability Calendar : calendar month sheet
--------------------------------------------------------------------------------*/
-
+/* ---------------------------------------------------------------------------
+   Calendar table
+   --------------------------------------------------------------------------- */
 table.calendar {
   float: left;
-  margin: 10px 15px 10px 0px;
-  border: 1px solid #ddd;
-  width: 216px;
-  background-color: #ddd;
+  margin: 0.625rem 0 1.25rem 0.9375rem;
+  width: 23%;
+  min-width: 220px;
   border-collapse: collapse;
-
+  box-shadow: 0 1px 4px var(--avcal-border);
 }
 
 table.calendar caption {
-  border: 1px solid #dfe9e9;
   text-align: center;
-  background-color: #dfe9e9;
-  color: #333;
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 1.05em;
+  padding: 0.3rem;
 }
+
 table.calendar thead th {
-  border: 1px solid #14568a;
-  text-align:center;
-  color: #ffffff;
-  background-color: #14568a;
+  text-align: center;
+  padding: 0.2rem;
 }
+
 table.calendar tbody td {
-  border: 1px solid #fff;
-  padding: 0;
   width: 30px;
   height: 30px;
   text-align: center;
   vertical-align: middle;
-  color: #333;
 }
-table.calendar tbody td.pad {
-  background-color: #ddd;
+
+/* Today */
+table.calendar tbody td.today {
+  background-color: var(--avcal-today-bg);
+  font-weight: bold;
+  border-radius: 3px;
 }
-table.calendar tbody td.booked {
-  background-color: #ffffcc;
+
+/* Passed days */
+table.calendar tbody td.passed {
+  opacity: 0.45;
 }
-table.calendar tbody td.booked-am {
-  background: url(booked-am.gif) no-repeat center center;
-}
-table.calendar tbody td.booked-pm {
-  background: url(booked-pm.gif) no-repeat center center;
-}
+
+/* ---------------------------------------------------------------------------
+   Booking states – pure CSS, no GIF images
+   --------------------------------------------------------------------------- */
 table.calendar tbody td.booked-all {
-  background: url(booked-all.gif) no-repeat center center;
+  background-color: var(--avcal-booked-all);
+  color: #fff;
 }
 
-/*
-  Availability Calendar : legend
--------------------------------------------------------------------------------*/
+table.calendar tbody td.booked-am {
+  background: linear-gradient(
+    to bottom,
+    var(--avcal-booked-am) 50%,
+    transparent 50%
+  );
+}
 
+table.calendar tbody td.booked-pm {
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    var(--avcal-booked-pm) 50%
+  );
+}
+
+/* ---------------------------------------------------------------------------
+   Legend
+   --------------------------------------------------------------------------- */
 ul.legend {
-  list-style-type: none !important;
-  margin: 10px 0;
+  list-style: none;
   padding: 0;
-  width: 100%;
+  margin: 0.5rem 0;
 }
 
 ul.legend li {
-  list-style-type: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 24.5%;
-  float: left;
-  background: url(booked-none.gif) no-repeat center left;
-  /*outline: 1px solid #c00;*/
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
 }
-ul.legend li.none { background-image: url(booked-none.gif); }
-ul.legend li.all { background-image: url(booked-all.gif); }
-ul.legend li.am { background-image: url(booked-am.gif); }
-ul.legend li.pm { background-image: url(booked-pm.gif); }
+
+ul.legend li::before {
+  content: '';
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 2px;
+  border: 1px solid var(--avcal-border);
+  flex-shrink: 0;
+}
+
+ul.legend li.booked-all::before { background-color: var(--avcal-booked-all); }
+ul.legend li.booked-am::before  {
+  background: linear-gradient(to bottom, var(--avcal-booked-am) 50%, transparent 50%);
+}
+ul.legend li.booked-pm::before  {
+  background: linear-gradient(to bottom, transparent 50%, var(--avcal-booked-pm) 50%);
+}
+
+/* Clearfix */
+.avcal-wrap::after,
+.calendar-wrap::after {
+  content: '';
+  display: table;
+  clear: both;
+}

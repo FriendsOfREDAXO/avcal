@@ -1,0 +1,65 @@
+
+# addon:avcal en_gb_utf8
+perm_general_avcal[page] = AvCal :: Availability Calendar
+avcal_title = Availability Calendar
+avcal_calendar = Calendar
+avcal_objects = Objects
+avcal_settings = Settings
+avcal_edit_settings = Edit settings
+avcal_label_week_start_day = Week starts on
+avcal_monday = Monday
+avcal_tuesday = Tuesday
+avcal_wednesday = Wednesday
+avcal_thursday = Thursday
+avcal_friday = Friday
+avcal_saturday = Saturday
+avcal_sunday = Sunday
+avcal_label_month_to_show = Number of months to display at once
+avcal_setup_done = Configuration/settings have been updated.
+avcal_setup_error = Configuration/settings could not be updated. The file "{0}" is not writable.
+
+avcal_add_object = Add object
+avcal_edit_object = Edit object data
+avcal_delete_object = Delete object
+avcal_object_deleted = Object has been deleted!
+avcal_label_name = Name
+avcal_label_description = Description
+avcal_label_status = Status
+avcal_change_status = Change status
+avcal_status_changed = Object status has been changed!
+avcal_label_functions = Action
+avcal_function_delete = delete
+avcal_required_field = Required fields
+
+avcal_first_create_objects = You must create objects first.
+avcal_select_object = Select object
+avcal_label_object = Object
+avcal_edit_booked_days = Edit booked days
+avcal_booked_day_deleted = Day has been unbooked!
+avcal_booked_day_inserted = Day has been marked as booked!
+avcal_instructions = Click on a day to toggle its booking status. Hold Shift to book only the morning, hold Alt to book only the afternoon.
+avcal_book_am = Book morning only (Shift + click)
+avcal_book_pm = Book afternoon only (Alt + click)
+avcal_book_all = Book full day (click)
+avcal_legend = Legend
+avcal_label_for = Text for "{0}"
+avcal_booked_none = not booked
+avcal_booked_am = morning only booked
+avcal_booked_pm = afternoon only booked
+avcal_booked_all = full day booked
+
+avcal_module_select_object = Select object
+avcal_module_month_to_show = Number of months
+avcal_module_month_per_row = Number per row
+avcal_module_show_navigation = Show navigation
+
+avcal_create_objects = Create objects
+avcal_object_intro = On the sub-page "<a href="index.php?page=avcal&amp;subpage=objects">Objects</a>" you must first create the objects for which you want to record availability. Name and description are for the backend only and will not be shown in the frontend.
+avcal_ical_export = Subscribe as calendar (iCal)
+avcal_ical_link_title = Subscribe to this calendar in your calendar application
+
+status_online = online
+status_offline = offline
+delete = Delete
+add = Add
+item_status_saved = Status saved.
