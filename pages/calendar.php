@@ -59,6 +59,7 @@ if (count($objects) < 1) {
 <form action="' . rex_url::currentBackendPage() . '" method="get">
   <input type="hidden" name="page" value="avcal" />
   <input type="hidden" name="subpage" value="calendar" />
+  <input type="hidden" name="date" value="' . rex_escape($date) . '" />
   <div class="form-horizontal">
     <div class="form-group">
       <label for="object_id" class="col-sm-2 control-label">' . $this->i18n('avcal_label_object') . '</label>
