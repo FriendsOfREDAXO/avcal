@@ -58,21 +58,21 @@
       });
   }
 
-  // rex:ready is a jQuery event fired by REDAXO – must use jQuery to listen
-  $(document).on('rex:ready', function () {
-    $(document).on('click', 'table.calendar tbody button', function (e) {
-      e.preventDefault();
+  // Delegated handler, bound once. Do not bind inside rex:ready: it fires again
+  // after every pjax navigation, which would stack handlers and toggle a day
+  // several times per click.
+  $(document).on('click', 'table.calendar tbody button', function (e) {
+    e.preventDefault();
 
-      var btn   = e.currentTarget;
-      var td    = btn.closest('td');
-      var table = btn.closest('table.calendar');
-      if (!td || !table) { return; }
+    var btn   = e.currentTarget;
+    var td    = btn.closest('td');
+    var table = btn.closest('table.calendar');
+    if (!td || !table) { return; }
 
-      var state = 'all';
-      if (e.shiftKey) { state = 'am'; }
-      if (e.altKey)   { state = 'pm'; }
+    var state = 'all';
+    if (e.shiftKey) { state = 'am'; }
+    if (e.altKey)   { state = 'pm'; }
 
-      toggleBooking(table, td, state);
-    });
+    toggleBooking(table, td, state);
   });
 }());
